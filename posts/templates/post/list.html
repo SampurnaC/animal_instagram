@@ -1,0 +1,18 @@
+<!-- ./employee/templates/employee/list.html -->
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for post in posts %}
+    <tr>
+      <th scope="row">{{ post.title }}</th>
+      <td>{{ post.description }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
