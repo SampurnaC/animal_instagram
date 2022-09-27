@@ -12,6 +12,16 @@
     <tr>
       <th scope="row">{{ post.title }}</th>
       <td>{{ post.description }}</td>
+      <td>
+        <a href="{% url 'post_update' post.id %}"
+          ><button type="button" class="btn btn-primary">Update</button></a
+        >
+      </td>
+      <td>
+        <a href="{% url 'post_delete' post.id %}"
+          ><button type="button" class="btn btn-primary">Delete</button></a
+        >
+      </td>
     </tr>
     {% endfor %}
   </tbody>

@@ -22,3 +22,24 @@ def create(request):
             return redirect('/posts/list')
     context = {'form': form} 
     return render(request, 'post/create.html', context)
+
+def updatePost(request, pk):
+    post = Post.objects.get(id=pk)
+    form = PostForm(instance=post)
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('/posts/list')
+    context = {'form': form}
+    return render(request, 'post/create.html', context)
+
+def deletePost(request,pk):
+    post = Post.objects.get(id=pk)
+    if request.method == "POST":
+        post.delete()
+        return redirect('/posts/list')
+
+    context = {'post': post}
+    return render(request, 'post/delete.html', context)
